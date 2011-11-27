@@ -11,82 +11,232 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link href="bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
+		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.32.png">
+    <link rel="icon" href="img/favicon.32.png">
     <!--
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     -->
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+					$('.topbar .nav li a').click(function() {
+						var dest = $($(this).attr("href")).offset().top;
+						$("html:not(:animated),body:not(:animated)").animate({ scrollTop: (dest - 60) }, 500);
+						return false;
+					});
+			});
+		</script>
   </head>
 
-  <body>
+  <body id="top">
 
-          <!--
+
+		<!-- TOPBAR -->
+
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand" href="#">sx4it</a>
+					<img class="logo" src="img/sx4it.small.png">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#top">4am</a></li>
+            <li><a href="#team">équipe</a></li>
+            <li><a href="#eip">eip</a></li>
+            <li><a href="#contact">contact</a></li>
           </ul>
         </div>
       </div>
     </div>
-          -->
 
-    <div class="container">
 
-      <div class="hero-unit">
-        <img src="img/4am.png" style="position:relative; left:-20px; float:left; margin-right:10px;">
-        <p style="margin-top:34px;">
-        <strong>4 access manager</strong> (4am) est une solution logicielle proposant une
-        alternative efficace aux modèles standards de gestion des authentifications
-        serveurs.
-        </p>
 
-        <br><br><br><br><br>
+		<!-- CONTENT -->
 
-        <p style="font-size:16px;">
-        4am est une application serveur permettant le déploiement de clef RSA, DSA
-        et ECDSA pour gérér les connections des administrateurs et ingénieurs systèmes.
-        Elle permet d'automatiser l'ajout de nouveaux équipements en y intégrant la composante sécurité lié à l'authentification.
-        </p>
-        <p style="font-size:16px;">
-        Face à des environnements extrêmements dynamiques, aussi appelés "cloud", la sécurité est une contrainte et la gestion des utilisateurs est un cauchemar.
-        Simple et rapide à installer, 4am permet d'accélérer vos déploiements serveurs tout en renforcant la sécurité.
-        </p>
-      </div>
+    <div id="4am" class="container">
 
-      <div class="row">
-        <div class="span5">
-          <h2>Webservice SSH</h2>
-          <p>Les droits et les utilisateurs sont gérés via une interface web ergonomique permettant de visualiser simplement les authentifications utilisateurs sur un parc informatique.</p>
-        </div>
-        <div class="span5" style="margin-left:50px; margin-right:30px;">
-          <h2>Standards</h2>
-          <p>Reposant sur des standards éprouvés tels que OpenSSH, RSA et PKCS, 4am est concu pour s'intégrer dans des infrastructures complexes et pour répondre à des politiques de sécurité exigeantes.</p>
-       </div>
-        <div class="span5">
-          <h2>OpenSource</h2>
-          <p>Publié sous licence opensource, 4am est l'allié des DSI/RSSI et des ingénieurs systèmes.</p>
-        </div>
-      </div>
 
-      <!--
-      <footer>
-        <p>The sx4it team.</p>
-      </footer>
-      -->
+			<!-- 4AM -->
+
+			<div class="bloc 4am">
+
+				<div class="hero-unit">
+					<img class="logo" src="img/4am.png">
+					<p class="first">
+					  <strong>4 access manager</strong> (4am) est une solution logicielle proposant une alternative efficace aux modèles standards de gestion des authentifications serveurs.
+					</p>
+
+					<br><br><br><br>
+
+					<p class="second">
+					  4am est une application serveur permettant le déploiement de clef RSA, DSA et ECDSA pour gérér les connections des administrateurs et ingénieurs systèmes.
+				    Elle permet d'automatiser l'ajout de nouveaux équipements en y intégrant la composante sécurité lié à l'authentification.
+					</p>
+					<p class="second">
+					  Face à des environnements extrêmements dynamiques, aussi appelés "cloud", la sécurité est une contrainte et la gestion des utilisateurs est un cauchemar.
+						Simple et rapide à installer, 4am permet d'accélérer vos déploiements serveurs tout en renforcant la sécurité.
+					</p>
+				</div>
+
+
+				<!-- FEATURES -->
+
+				<div class="row features">
+					<div class="span-one-third">
+						<h2>Standards</h2>
+						<p>Reposant sur des standards éprouvés tels que OpenSSH, RSA et PKCS, 4am est concu pour s'intégrer dans des infrastructures complexes et pour répondre à des politiques de sécurité exigeantes.</p>
+					</div>
+					<div class="span-one-third">
+						<h2>OpenSource</h2>
+						<p>Publié sous licence opensource, 4am est l'allié des DSI/RSSI et des ingénieurs systèmes. L'intégralité du projet est hébergé sur GitHub.</p>
+					</div>
+					<div class="span-one-third">
+						<h2>Webservice SSH</h2>
+						<p>Les droits et les utilisateurs sont gérés via une interface web ergonomique permettant de visualiser simplement les authentifications utilisateurs sur un parc informatique.</p>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<!-- GITHUB -->
+
+			<a class="github" href="http://github.com/sx4it" target="_blank"><img src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+
+
+
+			<!-- TEAM -->
+
+			<div id="team" class="bloc team">
+
+		  	<div class="page-header">
+		  		<h1>équipe<small>découvrez les membres du groupe sx4it</small></h1>
+		  	</div>
+
+		  	<div class="row">
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/3fca84f007d781d94d8986b1a4aea886?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:yann@sx4it.com">Yann Léger</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/6883daacb4cbdaa9e3697622648aaac4?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:nathan@sx4it.com">Nathan Appere</a>
+		  			</div>
+		  			<div class="desc">
+		  				Dévellopeur JavaScript &amp; Ruby. HN addict. En charge du client web.
+		  			</div>
+		  			<ul class="social">
+							<li><a class="twitter" target="_blank"  href="https://twitter.com/#!/NathanAppere"></a></li>
+							<li><a class="linkedin" target="_blank" href="http://www.linkedin.com/pub/nathan-appere/2b/a00/35"></a></li>
+		  			</ul>
+		  		</div>
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/c13baa024f15253b5d712bd23be39e7d?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:erwin@sx4it.com">Erwin Prevost</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/a1531a06972756bcd38c02379ed93e53?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:bastien@sx4it.com">Bastien Chatelard</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  	</div>
+
+		  	<div class="row">
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/eb35825fb03c8585e4cc5a8b0d14d733?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:martial@sx4it.com">Martial Bourquin</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/7124b10babbb5eb8ccc3d823dea585a6?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:guillaume@sx4it.com">Guillaume Bonnetti</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/4ba706ffcd9482da47ae31318ef274bc?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:joffrey@sx4it.com">Joffrey Lassignardie</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  		<div class="span4 member">
+		  			<img src="http://www.gravatar.com/avatar/79a7bcfd560d8ae59dcd91ed395d2db0?s=50&d=mm" class="avatar">
+		  			<div class="name">
+		  				<a href="mailto:axel@sx4it.com">Axel Evain</a>
+		  			</div>
+		  			<div class="desc">
+		  			</div>
+		  		</div>
+		  	</div>
+
+			</div>
+
+
+
+			<!-- EIP -->
+
+			<div id="eip" class="bloc eip">
+
+				<div class="page-header">
+					<h1>eip<small>epitech innovative project</small></h1>
+				</div>
+
+				<div class="row">
+					<div class="span4">
+						<img class="logo" src="img/eip.png">
+					</div>
+					<div class="span12">
+						<p>
+						L’Epitech Innovative Project ou EIP est une étape clé du cursus d'Epitech qui amène les étudiants de 4ème et 5ème année à réaliser un projet dans son intégralitée avec pour objectif principal qu'il soit utilisable dans le monde professionnel.
+						</p>
+
+					<a target="_blank" href="http://www.epitech.eu/le-but-des-pfe-art135-sct181.html">Plus d'informations sur les EIP</a>
+					</div>
+				</div>
+
+			</div>
+
+
 
     </div> <!-- /container -->
+
+
+
+		<!-- FOOTER -->
+
+		<div id="contact" class="topbar footer" data-dropdown="dropdown">
+			<div class="topbar-inner">
+				<div class="container">
+					<p>Contact: <a href="mailto:staff@sx4it.com">staff@sx4it.com</a></p>
+				</div>
+			</div>
+		</div>
+
+
 
   </body>
 </html>
