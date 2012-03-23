@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>jsonrpc Package &mdash; 4am 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="4am 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Common Package" href="common.html" />
+    <link rel="next" title="sx4itconf Package" href="common.sx4itconf.html" />
+    <link rel="prev" title="Common Package" href="common.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="common.sx4itconf.html" title="sx4itconf Package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="common.html" title="Common Package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">4am 1.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Packages</a> &raquo;</li>
+          <li><a href="common.html" accesskey="U">Common Package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="jsonrpc-package">
+<h1>jsonrpc Package<a class="headerlink" href="#jsonrpc-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">jsonrpc</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-common.jsonrpc"></span><p>common.jsonrpc package</p>
+</div>
+<div class="section" id="module-common.jsonrpc.call">
+<span id="call-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">call</span></tt> Module<a class="headerlink" href="#module-common.jsonrpc.call" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="common.jsonrpc.call.Callable">
+<tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">Callable</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.Callable" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is intended to be used as a decorator.
+It flags the method as exportable.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="common.jsonrpc.call.JRPCError">
+<em class="property">exception </em><tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">JRPCError</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.JRPCError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.RuntimeError</span></tt></p>
+<p>Basic exception class.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.call.analyzeJRPCRes">
+<tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">analyzeJRPCRes</tt><big>(</big><em>rawres</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.analyzeJRPCRes" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function return the result of the jsonrpc answer and raise an
+exception in case of an error.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.call.forgeJRPC">
+<tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">forgeJRPC</tt><big>(</big><em>method</em>, <em>requestId</em>, <em>args</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.forgeJRPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is useful to forge the jsonrpc request on the client side.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.call.getCallFunc">
+<tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">getCallFunc</tt><big>(</big><em>RPCRoot</em>, <em>methName</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.getCallFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function search beginning at RPCRoot, the methName (a string) and
+return a reference to the function/method.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.call.invalidRequest">
+<tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">invalidRequest</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.invalidRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forge a jsonrpc invalid request error.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.call.processCall">
+<tt class="descclassname">common.jsonrpc.call.</tt><tt class="descname">processCall</tt><big>(</big><em>data</em>, <em>RPCRoot</em>, <em>lookup=&lt;function getCallFunc at 0x3165b18&gt;</em><big>)</big><a class="headerlink" href="#common.jsonrpc.call.processCall" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function process a JSON Remote Procedure Call.
+lookup is a method</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-common.jsonrpc.genModuleTree">
+<span id="genmoduletree-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">genModuleTree</span></tt> Module<a class="headerlink" href="#module-common.jsonrpc.genModuleTree" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="common.jsonrpc.genModuleTree.generateModuleTree">
+<tt class="descclassname">common.jsonrpc.genModuleTree.</tt><tt class="descname">generateModuleTree</tt><big>(</big><em>root</em><big>)</big><a class="headerlink" href="#common.jsonrpc.genModuleTree.generateModuleTree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-common.jsonrpc.proxy">
+<span id="proxy-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">proxy</span></tt> Module<a class="headerlink" href="#module-common.jsonrpc.proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="common.jsonrpc.proxy.JRPCError">
+<em class="property">exception </em><tt class="descclassname">common.jsonrpc.proxy.</tt><tt class="descname">JRPCError</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#common.jsonrpc.proxy.JRPCError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.RuntimeError</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="common.jsonrpc.proxy.Proxy">
+<em class="property">class </em><tt class="descclassname">common.jsonrpc.proxy.</tt><tt class="descname">Proxy</tt><a class="headerlink" href="#common.jsonrpc.proxy.Proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.proxy.analyzeJRPCRes">
+<tt class="descclassname">common.jsonrpc.proxy.</tt><tt class="descname">analyzeJRPCRes</tt><big>(</big><em>rawres</em><big>)</big><a class="headerlink" href="#common.jsonrpc.proxy.analyzeJRPCRes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="common.jsonrpc.proxy.forgeJRPC">
+<tt class="descclassname">common.jsonrpc.proxy.</tt><tt class="descname">forgeJRPC</tt><big>(</big><em>method</em>, <em>requestId</em>, <em>args</em><big>)</big><a class="headerlink" href="#common.jsonrpc.proxy.forgeJRPC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">jsonrpc Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">jsonrpc</span></tt> Package</a></li>
+<li><a class="reference internal" href="#module-common.jsonrpc.call"><tt class="docutils literal"><span class="pre">call</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-common.jsonrpc.genModuleTree"><tt class="docutils literal"><span class="pre">genModuleTree</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-common.jsonrpc.proxy"><tt class="docutils literal"><span class="pre">proxy</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="common.html"
+                        title="previous chapter">Common Package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="common.sx4itconf.html"
+                        title="next chapter">sx4itconf Package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/packages/common.jsonrpc.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="common.sx4itconf.html" title="sx4itconf Package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="common.html" title="Common Package"
+             >previous</a> |</li>
+        <li><a href="../index.html">4am 1.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Packages</a> &raquo;</li>
+          <li><a href="common.html" >Common Package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Authors.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

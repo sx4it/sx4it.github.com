@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sshhandler Package &mdash; 4am 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="4am 1.0 documentation" href="../index.html" />
+    <link rel="up" title="server Package" href="server.html" />
+    <link rel="next" title="controller Package" href="controller.html" />
+    <link rel="prev" title="server Package" href="server.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="controller.html" title="controller Package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="server.html" title="server Package"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">4am 1.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Packages</a> &raquo;</li>
+          <li><a href="server.html" accesskey="U">server Package</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="sshhandler-package">
+<h1>sshhandler Package<a class="headerlink" href="#sshhandler-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">sshhandler</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-server.sshhandler"></span><p>Theses modules are the core module of the ssh/decapsulator process, it allow the server to run multiple session type and simply handle them.</p>
+</div>
+<div class="section" id="module-server.sshhandler.abstracthandler">
+<span id="abstracthandler-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">abstracthandler</span></tt> Module<a class="headerlink" href="#module-server.sshhandler.abstracthandler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="server.sshhandler.abstracthandler.Handler">
+<em class="property">class </em><tt class="descclassname">server.sshhandler.abstracthandler.</tt><tt class="descname">Handler</tt><big>(</big><em>chan</em>, <em>portlist</em><big>)</big><a class="headerlink" href="#server.sshhandler.abstracthandler.Handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>This is the base ssh handler, it can be used to do anything, it answer to the client request and call the corresponding functions.</p>
+<dl class="method">
+<dt id="server.sshhandler.abstracthandler.Handler.fileno">
+<tt class="descname">fileno</tt><big>(</big><big>)</big><a class="headerlink" href="#server.sshhandler.abstracthandler.Handler.fileno" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="server.sshhandler.abstracthandler.Handler.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#server.sshhandler.abstracthandler.Handler.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-server.sshhandler.shell">
+<span id="shell-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">shell</span></tt> Module<a class="headerlink" href="#module-server.sshhandler.shell" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="server.sshhandler.shell.shell">
+<em class="property">class </em><tt class="descclassname">server.sshhandler.shell.</tt><tt class="descname">shell</tt><big>(</big><em>chan</em>, <em>portlist</em><big>)</big><a class="headerlink" href="#server.sshhandler.shell.shell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#server.sshhandler.abstracthandler.Handler" title="server.sshhandler.abstracthandler.Handler"><tt class="xref py py-class docutils literal"><span class="pre">server.sshhandler.abstracthandler.Handler</span></tt></a></p>
+<p>This class is used to answer the openssh client, we listen on the <strong>session</strong> channel. And answer properly so that the user can have a pronpt.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-server.sshhandler.sx4itsession">
+<span id="sx4itsession-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">sx4itsession</span></tt> Module<a class="headerlink" href="#module-server.sshhandler.sx4itsession" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="server.sshhandler.sx4itsession.sx4itsession">
+<em class="property">class </em><tt class="descclassname">server.sshhandler.sx4itsession.</tt><tt class="descname">sx4itsession</tt><big>(</big><em>chan</em>, <em>portlist</em><big>)</big><a class="headerlink" href="#server.sshhandler.sx4itsession.sx4itsession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#server.sshhandler.abstracthandler.Handler" title="server.sshhandler.abstracthandler.Handler"><tt class="xref py py-class docutils literal"><span class="pre">server.sshhandler.abstracthandler.Handler</span></tt></a></p>
+<p>This class is a simple forwarder.
+It store and forward packets to the Controllers. It Use zmq to dynamicly choose between host.
+Distribution between host is equal, it is native in zmq.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">sshhandler Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">sshhandler</span></tt> Package</a></li>
+<li><a class="reference internal" href="#module-server.sshhandler.abstracthandler"><tt class="docutils literal"><span class="pre">abstracthandler</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-server.sshhandler.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-server.sshhandler.sx4itsession"><tt class="docutils literal"><span class="pre">sx4itsession</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="server.html"
+                        title="previous chapter">server Package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="controller.html"
+                        title="next chapter">controller Package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/packages/server.sshhandler.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="controller.html" title="controller Package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="server.html" title="server Package"
+             >previous</a> |</li>
+        <li><a href="../index.html">4am 1.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Packages</a> &raquo;</li>
+          <li><a href="server.html" >server Package</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Authors.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

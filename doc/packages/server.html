@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>server Package &mdash; 4am 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="4am 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Packages" href="index.html" />
+    <link rel="next" title="sshhandler Package" href="server.sshhandler.html" />
+    <link rel="prev" title="Client Script" href="client.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="server.sshhandler.html" title="sshhandler Package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="client.html" title="Client Script"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">4am 1.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Packages</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="server-package">
+<h1>server Package<a class="headerlink" href="#server-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">server</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-server.__init__"></span><p>To launch the server you can simply run <tt class="docutils literal"><span class="pre">./Server.py</span></tt> on the root of <strong>4am</strong> directory.
+This will read your <em>server.conf</em> file and launch the desired controllers.</p>
+</div>
+<div class="section" id="module-server.Server">
+<span id="server-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">Server</span></tt> Module<a class="headerlink" href="#module-server.Server" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="server.Server.ControllerProxy">
+<em class="property">class </em><tt class="descclassname">server.Server.</tt><tt class="descname">ControllerProxy</tt><a class="headerlink" href="#server.Server.ControllerProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.jsonrpc.html#common.jsonrpc.proxy.Proxy" title="common.jsonrpc.proxy.Proxy"><tt class="xref py py-class docutils literal"><span class="pre">common.jsonrpc.proxy.Proxy</span></tt></a></p>
+<p>This class inherit of the jsonrpc proxy and define the __call__ method forwarding the request to the controller process.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="server.Server.SSHHandler">
+<em class="property">class </em><tt class="descclassname">server.Server.</tt><tt class="descname">SSHHandler</tt><a class="headerlink" href="#server.Server.SSHHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">paramiko.ServerInterface</span></tt></p>
+<dl class="docutils">
+<dt>We inherit from the paramiko serverinterface and redefine our security behaviors.</dt>
+<dd><div class="first last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we connect to via zmq to check the userkey</p>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="server.Server.SSHHandler.check_auth_password">
+<tt class="descname">check_auth_password</tt><big>(</big><em>username</em>, <em>password</em><big>)</big><a class="headerlink" href="#server.Server.SSHHandler.check_auth_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the function which check the password</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.Server.SSHHandler.check_auth_publickey">
+<tt class="descname">check_auth_publickey</tt><big>(</big><em>username</em>, <em>key</em><big>)</big><a class="headerlink" href="#server.Server.SSHHandler.check_auth_publickey" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function remotly check that the publickey is matching with the username.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.Server.SSHHandler.check_channel_pty_request">
+<tt class="descname">check_channel_pty_request</tt><big>(</big><em>channel</em>, <em>term</em>, <em>width</em>, <em>height</em>, <em>pixelwidth</em>, <em>pixelheight</em>, <em>modes</em><big>)</big><a class="headerlink" href="#server.Server.SSHHandler.check_channel_pty_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is to allow the pty allocation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.Server.SSHHandler.check_channel_request">
+<tt class="descname">check_channel_request</tt><big>(</big><em>kind</em>, <em>chanid</em><big>)</big><a class="headerlink" href="#server.Server.SSHHandler.check_channel_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function check the two different type of ssh sessions: <strong>session</strong> (the defautl ssh session) and <strong>sx4it_command</strong>.
+We only accept this two type of connection.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.Server.SSHHandler.check_channel_shell_request">
+<tt class="descname">check_channel_shell_request</tt><big>(</big><em>channel</em><big>)</big><a class="headerlink" href="#server.Server.SSHHandler.check_channel_shell_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to flag the connection type (for default ssh shell).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.Server.SSHHandler.get_allowed_auths">
+<tt class="descname">get_allowed_auths</tt><big>(</big><em>username</em><big>)</big><a class="headerlink" href="#server.Server.SSHHandler.get_allowed_auths" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is getting the two type of allowed loggin mode.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="server.Server.Server">
+<em class="property">class </em><tt class="descclassname">server.Server.</tt><tt class="descname">Server</tt><big>(</big><em>port</em><big>)</big><a class="headerlink" href="#server.Server.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The server object hold the connection, it is the main loop for the server.</p>
+<dl class="method">
+<dt id="server.Server.Server.LaunchController">
+<tt class="descname">LaunchController</tt><big>(</big><em>port</em><big>)</big><a class="headerlink" href="#server.Server.Server.LaunchController" title="Permalink to this definition">¶</a></dt>
+<dd><p>This allow us to launch the child controller process.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Port :</th><td class="field-body">this is the port where the controller will be listenning to</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="server.Server.Server.run">
+<tt class="descname">run</tt><big>(</big><em>portlist</em><big>)</big><a class="headerlink" href="#server.Server.Server.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method launch the server and create all the controllers.
+It also launch all thread needed by paramiko and load the server private key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Portlist :</th><td class="field-body">this port list represent the controllers port.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="server.Server.Worker">
+<tt class="descclassname">server.Server.</tt><tt class="descname">Worker</tt><big>(</big><em>client</em>, <em>host_key</em>, <em>portlist</em><big>)</big><a class="headerlink" href="#server.Server.Worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>The worker function is the entry point when a client is connecting to the server,
+it initialize paramiko context and check the connection channel.
+This function also launch the session handler and keep client informations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Host_key :</th><td class="field-body">this is the server key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Portlist :</th><td class="field-body">this is the port list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="server.Server.controllerProxy">
+<tt class="descclassname">server.Server.</tt><tt class="descname">controllerProxy</tt><a class="headerlink" href="#server.Server.controllerProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class inherit of the jsonrpc proxy and define the __call__ method forwarding the request to the controller process.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="server.Server.loadkey">
+<tt class="descclassname">server.Server.</tt><tt class="descname">loadkey</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#server.Server.loadkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function load the server key and convert it to the desired paramiko format.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="server.Server.run">
+<tt class="descclassname">server.Server.</tt><tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#server.Server.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entry point for the Server, it allow you to import and then run the server.
+This launch the server, bind it to the desired port and launch the controllers.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="server.sshhandler.html">sshhandler Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server.sshhandler.html#id1"><tt class="docutils literal"><span class="pre">sshhandler</span></tt> Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server.sshhandler.html#module-server.sshhandler.abstracthandler"><tt class="docutils literal"><span class="pre">abstracthandler</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server.sshhandler.html#module-server.sshhandler.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server.sshhandler.html#module-server.sshhandler.sx4itsession"><tt class="docutils literal"><span class="pre">sx4itsession</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">server Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">server</span></tt> Package</a></li>
+<li><a class="reference internal" href="#module-server.Server"><tt class="docutils literal"><span class="pre">Server</span></tt> Module</a></li>
+<li><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="client.html"
+                        title="previous chapter">Client Script</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="server.sshhandler.html"
+                        title="next chapter">sshhandler Package</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/packages/server.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="server.sshhandler.html" title="sshhandler Package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="client.html" title="Client Script"
+             >previous</a> |</li>
+        <li><a href="../index.html">4am 1.0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Packages</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Authors.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>reStructuredText Tutorial! &mdash; 4am 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="4am 1.0 documentation" href="index.html" />
+    <link rel="next" title="Packages" href="packages/index.html" />
+    <link rel="prev" title="Welcome to 4am’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="packages/index.html" title="Packages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to 4am’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">4am 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="restructuredtext-tutorial">
+<h1>reStructuredText Tutorial!<a class="headerlink" href="#restructuredtext-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>Ce chapitre est une introduction à <strong>reStructuredText</strong>, le markup
+language utilisé par <strong>Sphinx</strong>.</p>
+<div class="section" id="les-paragraphes">
+<h2>Les paragraphes<a class="headerlink" href="#les-paragraphes" title="Permalink to this headline">¶</a></h2>
+<p>Ceci est un paragraphe ! Il est délimité par un ou plusieurs saut de ligne,
+chaque nouvelle ligne doit être indentée comme les précédentes.
+On ne peux pas &#8220;revenir à la ligne&#8221; dans un paragraphe, c&#8217;est la plus petite
+&#8220;unité d&#8217;organisation&#8221; du texte.</p>
+</div>
+<div class="section" id="inline-markup">
+<h2>Inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<p>Dans un paragraphe on peut écrire des trucs en <em>italique</em>, en <strong>gras</strong> ou en
+police <tt class="docutils literal"><span class="pre">monospaced</span></tt> (pour afficher du code par exemple) en encadrant le texte
+avec, respectivement, une étoile, deux étoiles ou des backquotes.
+Si on veux inclure des étoiles (*) dans un texte en <em>italique</em> ou en <strong>gras</strong>,
+il faut les précéder d&#8217;un backslash (\). Il en est de même pour les backquotes
+dans un text en police <tt class="docutils literal"><span class="pre">monospaced</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">*Une</span> <span class="pre">étoile*</span></tt>: <em>Une étoile</em></li>
+<li><tt class="docutils literal"><span class="pre">**Deux</span> <span class="pre">étoiles**</span></tt>: <strong>Deux étoiles</strong></li>
+<li><tt class="docutils literal"><span class="pre">``Deux</span> <span class="pre">backquotes``</span></tt>: <tt class="docutils literal"><span class="pre">Deux</span> <span class="pre">backquotes</span></tt></li>
+</ul>
+</div>
+<div class="section" id="les-listes">
+<h2>Les listes<a class="headerlink" href="#les-listes" title="Permalink to this headline">¶</a></h2>
+<p>On peux faire plusieurs types de listes dont les listes normales et les listes
+numérotées, les listes de définitions et les listes à champs. Pour faire des
+listes simples, il suffit de précéder un paragraphe d&#8217;une étoile. Pour les
+listes numérotées, on précède le paragraphe d&#8217;un nombre suivi d&#8217;un point si on
+souhaite numéroter les parties manuellement ou d&#8217;un dièse (#) suivi d&#8217;un point
+si on veut que <strong>Sphinx</strong> numérote la liste automatiquement. Pour les
+autres listes c&#8217;est un peu plus compliqué.</p>
+<div class="section" id="listes-simples">
+<h3>Listes simples<a class="headerlink" href="#listes-simples" title="Permalink to this headline">¶</a></h3>
+<p>Voici un exemple de liste simple:</p>
+<div class="highlight-python"><pre>* Ceci est le premier élément de ma liste
+* Voici le second
+    * Voici un élément intermédiaire histoire de montrer qu'on peut faire
+      des sous-listes
+* Un troisième qui prend deux
+  lignes pour rien (notez l'indentation...)</pre>
+</div>
+<p>Ce qui donne:</p>
+<ul>
+<li><p class="first">Ceci est le premier élément de ma liste</p>
+</li>
+<li><dl class="first docutils">
+<dt>Voici le second</dt>
+<dd><ul class="first last simple">
+<li>Voici un élément intermédiaire histoire de montrer qu&#8217;on peut faire des
+sous-listes</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Un troisième qui prend deux
+lignes pour rien (notez l&#8217;indentation...)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="listes-numerotees">
+<h3>Listes numérotées<a class="headerlink" href="#listes-numerotees" title="Permalink to this headline">¶</a></h3>
+<p>Voici un exemple de liste numérotée:</p>
+<div class="highlight-python"><pre>1. Ceci est mon premier élément
+    1.1. Ceci est mon premier sous élément
+2. Ceci est mon deuxième élément
+3. Ceci est mon troisième élément</pre>
+</div>
+<p>Qui donne le texte suivant une fois générée:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Ceci est mon premier élément</dt>
+<dd><p class="first last">1.1. Ceci est mon premier sous élément</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Ceci est mon deuxième élément</p>
+</li>
+<li><p class="first">Ceci est mon troisième élément</p>
+</li>
+</ol>
+</div>
+<div class="section" id="listes-auto-numerotees">
+<h3>Listes auto-numérotées<a class="headerlink" href="#listes-auto-numerotees" title="Permalink to this headline">¶</a></h3>
+<p>Voici un exemple de super liste auto-numérotées que vazy elles sont trop bien:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#. Ceci est mon premier élément</span>
+<span class="c">#. Ceci est mon second élément, plus original que le précédent...</span>
+<span class="c">#. Ceci est mon DERNIER élément</span>
+</pre></div>
+</div>
+<p>Voici le rendu:</p>
+<ol class="arabic simple">
+<li>Ceci est mon premier élément</li>
+<li>Ceci est mon second élément, plus original que le précédent...</li>
+<li>Ceci est mon DERNIER élément</li>
+</ol>
+<p>Petit bémol, on ne peux pas faire de sous élément qui se numérotent tout seul.</p>
+</div>
+<div class="section" id="listes-de-definitions">
+<h3>Listes de définitions<a class="headerlink" href="#listes-de-definitions" title="Permalink to this headline">¶</a></h3>
+<p>Sait on jamais, ca pourrait servir. Ce sont des listes avec un terme qui fait
+maximum une ligne, suivi de sa définition:</p>
+<div class="highlight-python"><pre>Loutre
+    Animal qu'il est trop mignon
+Poney
+    Animal qu'il est trop gentil</pre>
+</div>
+<p>Et voilà le résultat (non, ce n&#8217;est pas évident mais c&#8217;est bien d&#8217;une liste):</p>
+<dl class="docutils">
+<dt>Loutre</dt>
+<dd>Animal qu&#8217;il est trop mignon</dd>
+<dt>Poney</dt>
+<dd>Animal qu&#8217;il est trop gentil</dd>
+</dl>
+</div>
+<div class="section" id="les-listes-des-champs">
+<h3>Les listes des champs<a class="headerlink" href="#les-listes-des-champs" title="Permalink to this headline">¶</a></h3>
+<p>Alors, ci dessous un exemple de ce qu&#8217;on appelle des &#8220;field-lists&#8221;, qui sont
+utile pour la documentation du code, histoire de passer des informations à
+<strong>Sphinx</strong> depuis les docstrings:</p>
+<div class="highlight-python"><pre>:MonChamp: Est pas très grand
+:Toto: * Est pas drôle
+       * Mange de la salade
+:Titi: Est une fille</pre>
+</div>
+<p>Ce qui produit un résultat pas très éthétique, mais c&#8217;est surtout utile pour
+déplacer la doc dans le code, comme dit plus haut.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">MonChamp:</th><td class="field-body"><p class="first">Est pas très grand</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Toto:</th><td class="field-body"><ul class="first simple">
+<li>Est pas drôle</li>
+<li>Mange de la salade</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Titi:</th><td class="field-body"><p class="first last">Est une fille</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="les-blocs-de-code">
+<h2>Les blocs de code<a class="headerlink" href="#les-blocs-de-code" title="Permalink to this headline">¶</a></h2>
+<p>Je suis sur que vous vous demandez tous comment je fais pour vous montrer le
+code source de la page dans les exemples ! (Oué non en fait j&#8217;y crois pas trop
+mais on va faire comme si). Et bien c&#8217;est très simple ! Il suffit de précéder
+du texte par &#8221;::&#8221; suivis d&#8217;un saut de ligne ! C&#8217;est pas très clair ? Voici un
+exemple qui va montrer comment je fais les exemples (Youhou!):</p>
+<div class="highlight-python"><pre>Youpi je suis une paragraphe décrivant un truc trop cool que je veux
+absolument montrer mais sous forme littérale:
+
+::
+
+    if __name__ == '__main__':
+        print("Poney!")</pre>
+</div>
+<p>Et ci dessous admirrez le rendu, avec des couleurs itout itout grâce à
+<strong>Pygments</strong>:</p>
+<p>Youpi je suis une paragraphe décrivant un truc trop cool que je veux
+absolument montrer mais sous forme littérale:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Poney!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Petit conus pour les mecs qui aiment en faire le moins possible, il y a trois
+manière d&#8217;introduire un bloc de code qui donnent exactement le même rendu, mais
+en demandant plus ou moins d&#8217;effort de votre part:</p>
+<div class="highlight-python"><pre>Paragraphe:
+
+::
+
+    Code
+
+Paragraphe: ::
+
+    Code
+
+Paragraphe::
+
+    Code</pre>
+</div>
+<p>Voilà, ces trois formes donnent exactement la même chose au final, c&#8217;est à dire
+un paragraphe suivis de &#8216;:&#8217; puis le bloc littéral en dessous.</p>
+</div>
+<div class="section" id="les-bloc-doctest">
+<h2>Les bloc &#8220;Doctest&#8221;<a class="headerlink" href="#les-bloc-doctest" title="Permalink to this headline">¶</a></h2>
+<p>Vu qu&#8217;on vient de voir comment faire des blocs de texte non intérprété par
+<strong>Sphinx</strong>, on va jeter un coup d&#8217;oeil au bloc <em>Doctest</em>. Ces
+blocs sont plutôt intéressants puisqu&#8217;ils vont nous permettre de tester nos
+fonctions via un module de <strong>Sphinx</strong> (sphinx.ext.doctest). C&#8217;est bien
+pratique car ca permet de garder les tests unitaires dans les docstrings des
+fonctions, et en plus ca fait genre on fait du TDD et tout. Voici la syntaxe:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;LOOTRE!&quot;</span><span class="p">)</span>
+<span class="go">LOOTRE!</span>
+</pre></div>
+</div>
+<p>Voilà, rien de bien compliqué la dedans, et on peut également l&#8217;utiliser pour
+documenter si on veux montrer un exemple dans une session intéractive Python,
+et ce qui est fun c&#8217;est que je n&#8217;ai pas besoin de vous montrer le rendu puisque
+c&#8217;est le même que dans l&#8217;exemple du dessus. Bon, juste histoire de vous le
+prouver:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;LOOTRE!&quot;</span><span class="p">)</span>
+<span class="go">LOOTRE!</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="les-liens">
+<h2>Les liens<a class="headerlink" href="#les-liens" title="Permalink to this headline">¶</a></h2>
+<p>Attention, petite partie vraiment intéressante... Voici comment on créé un
+<a class="reference external" href="http://upload.wikimedia.org/wikipedia/commons/d/db/Otter_in_winter.jpg">lien</a>:</p>
+<div class="highlight-python"><pre>Voici un lien vers `Google &lt;http://www.google.com&gt;`_ !</pre>
+</div>
+<p>Oui, il faut bien le &#8216;_&#8217; après le lien, ce n&#8217;est pas une erreur.</p>
+</div>
+<div class="section" id="les-titres">
+<h2>Les titres<a class="headerlink" href="#les-titres" title="Permalink to this headline">¶</a></h2>
+<p>Voici comment on met en évidence un titre en suivant les conventions de la doc
+Python:</p>
+<div class="highlight-python"><pre>==========
+H1 - Parts
+==========
+
+*************
+H2 - Chapters
+*************
+
+H3 - Sections
+=============
+
+H4 - Subsections
+----------------
+
+H5 - Subsubsections
+^^^^^^^^^^^^^^^^^^^
+
+H6 - Paragraphs
+"""""""""""""""</pre>
+</div>
+<p>Pour le titre du tutoriel j&#8217;ai utilisé la syntaxe H2 par exemple car il n&#8217;est
+composé que d&#8217;un seul chapitre avec plein de sections.</p>
+</div>
+<div class="section" id="les-commentaires">
+<h2>Les commentaires<a class="headerlink" href="#les-commentaires" title="Permalink to this headline">¶</a></h2>
+<p>Car ca peut être utile quelques fois de commenter la source de la documentation
+voici comment écrire un commentaire:</p>
+<div class="highlight-python"><pre>.. Ceci est un commentaire sur une ligne
+
+..
+
+    Ceci est un commentaire qui s'étend sur plusieurs lignes et occupe
+    pas mal de place dans la source</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">reStructuredText Tutorial!</a><ul>
+<li><a class="reference internal" href="#les-paragraphes">Les paragraphes</a></li>
+<li><a class="reference internal" href="#inline-markup">Inline markup</a></li>
+<li><a class="reference internal" href="#les-listes">Les listes</a><ul>
+<li><a class="reference internal" href="#listes-simples">Listes simples</a></li>
+<li><a class="reference internal" href="#listes-numerotees">Listes numérotées</a></li>
+<li><a class="reference internal" href="#listes-auto-numerotees">Listes auto-numérotées</a></li>
+<li><a class="reference internal" href="#listes-de-definitions">Listes de définitions</a></li>
+<li><a class="reference internal" href="#les-listes-des-champs">Les listes des champs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#les-blocs-de-code">Les blocs de code</a></li>
+<li><a class="reference internal" href="#les-bloc-doctest">Les bloc &#8220;Doctest&#8221;</a></li>
+<li><a class="reference internal" href="#les-liens">Les liens</a></li>
+<li><a class="reference internal" href="#les-titres">Les titres</a></li>
+<li><a class="reference internal" href="#les-commentaires">Les commentaires</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to 4am&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="packages/index.html"
+                        title="next chapter">Packages</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/reStructuredText.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="packages/index.html" title="Packages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to 4am’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">4am 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Authors.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
